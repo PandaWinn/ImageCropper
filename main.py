@@ -83,14 +83,14 @@ with st.spinner('Code is running'):
                 img_byte_arr = BytesIO()
                 file.save(img_byte_arr, format='PNG')
                 img_byte_arr = img_byte_arr.getvalue()
-                zipF.writestr('cropped'+str(i)+'.png', img_byte_arr , compress_type=None)
+                zipF.writestr(im_name+str(i)+'.png', img_byte_arr , compress_type=None)
             zipF.close()
         
         zipfile_ob = zip_buffer.getvalue()
         btn = st.download_button(
             label = 'Download',
             data = zipfile_ob,
-            file_name = 'cropped3.zip',
+            file_name = 'image_cropper.zip',
             mime = 'application/zip'
         )
         st.experimental_memo.clear()
